@@ -1,0 +1,72 @@
+:root {
+	--color-ink: #14202b;
+	--color-panel: #1b2a38;
+	--color-panel-hover: #22364a;
+	--color-border: #2a3d4e;
+	--color-sun: #e8a33d;
+	--color-tide: #4fa9a0;
+	--color-text: #ede6d6;
+	--color-text-muted: #8fa3b0;
+
+	--font-display: 'Spectral', Georgia, serif;
+	--font-body: 'Space Grotesk', system-ui, sans-serif;
+
+	--sidebar-collapsed: 4.5rem;
+	--sidebar-expanded: 15rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	background: var(--color-ink);
+	color: var(--color-text);
+	font-family: var(--font-body);
+	min-height: 100vh;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-display);
+	font-weight: 500;
+	margin: 0 0 0.75rem 0;
+	line-height: 1.15;
+}
+
+p {
+	line-height: 1.6;
+	color: var(--color-text-muted);
+	max-width: 60ch;
+}
+
+a {
+	color: var(--color-tide);
+}
+
+button {
+	font-family: inherit;
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-sun);
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+	}
+}
