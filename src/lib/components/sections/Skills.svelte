@@ -1,25 +1,83 @@
+<script lang="ts">
+	const groups: { heading: string; tags: string[] }[] = [
+		{
+			heading: 'Languages',
+			tags: ['Python', 'Fortran', 'C', 'C++', 'TypeScript', 'SQL', 'Bash', 'Rust (learning)']
+		},
+		{
+			heading: 'Web & UI',
+			tags: ['Svelte / SvelteKit', 'Flask', 'Multi-device real-time UIs', 'HTML / CSS']
+		},
+		{
+			heading: 'Robotics & systems',
+			tags: [
+				'ROS2',
+				'Behavior trees',
+				'Hardware drivers & control logic',
+				'Sensor fusion (GNSS, IMU)',
+				'State estimation'
+			]
+		},
+		{
+			heading: 'Scientific computing',
+			tags: [
+				'Finite-difference PDE solvers',
+				'Cable & marine dynamics modeling',
+				'Numerical optimization & profiling',
+				'Simulation validation & benchmarking'
+			]
+		},
+		{
+			heading: 'HPC & data',
+			tags: [
+				'SLURM batch pipelines',
+				'Distributed HPC analyses',
+				'Large astronomy datasets over SQL',
+				'Data visualization (Matplotlib)'
+			]
+		},
+		{
+			heading: 'DevOps',
+			tags: [
+				'GitHub Enterprise Server admin',
+				'GitHub Actions CI/CD',
+				'Self-hosted runners',
+				'CMake cross-platform builds',
+				'SVN → Git migration',
+				'Linux'
+			]
+		},
+		{
+			heading: 'Working with people',
+			tags: [
+				'Technical communication & outreach',
+				'Documentation & user guides',
+				'Project coordination',
+				'Mentorship',
+				'Team management'
+			]
+		}
+	];
+</script>
+
 <section>
 	<h2>Technical skills</h2>
-	<p>Languages, frameworks, and systems — edit freely to match how you'd actually group these.</p>
+	<p>
+		Software developer and physicist — data analysis, web applications, DevOps, simulation, and
+		high-performance scientific computing. Comfortable from hardware drivers up through the UI, and
+		from a first literature review through to a shipped result.
+	</p>
 	<div class="groups">
-		<div class="group">
-			<h3>Languages</h3>
-			<div class="tags">
-				<span>Python</span><span>TypeScript</span><span>C++</span><span>Fortran</span>
+		{#each groups as group (group.heading)}
+			<div class="group">
+				<h3>{group.heading}</h3>
+				<div class="tags">
+					{#each group.tags as tag (tag)}
+						<span>{tag}</span>
+					{/each}
+				</div>
 			</div>
-		</div>
-		<div class="group">
-			<h3>Frameworks &amp; tools</h3>
-			<div class="tags">
-				<span>SvelteKit</span><span>FastAPI</span><span>ROS2</span>
-			</div>
-		</div>
-		<div class="group">
-			<h3>Systems</h3>
-			<div class="tags">
-				<span>HPC / distributed pipelines</span><span>Subsea robotics</span>
-			</div>
-		</div>
+		{/each}
 	</div>
 </section>
 
