@@ -4,10 +4,10 @@
 	import GearIcon from './icons/GearIcon.svelte';
 	import BirdIcon from './icons/BirdIcon.svelte';
 
-	type Section = 'research' | 'skills' | 'hobbies';
+	type Section = 'home' | 'research' | 'skills' | 'hobbies';
 
 	let {
-		active = $bindable('research'),
+		active = $bindable('home'),
 		onnavigate
 	}: { active?: Section; onnavigate?: (s: Section) => void } = $props();
 
@@ -31,12 +31,18 @@
 	onmouseenter={() => (expanded = true)}
 	onmouseleave={() => (expanded = false)}
 >
-	<div class="brand">
+	<button
+		class="brand"
+		class:active={active === 'home'}
+		onclick={() => select('home')}
+		aria-current={active === 'home'}
+		aria-label="Home"
+	>
 		<OrbitLogo size={36} />
 		{#if expanded}
 			<span class="name">Jack</span>
 		{/if}
-	</div>
+	</button>
 
 	<ul>
 		{#each items as item (item.id)}
@@ -87,11 +93,10 @@
 	}
 
 	.brand {
-		display: flex;
-		align-items: center;
 		gap: 0.75rem;
-		padding-left: 0.15rem;
 		min-height: 36px;
+		margin-bottom: 0.25rem;
+		color: var(--color-text);
 	}
 
 	.name {
